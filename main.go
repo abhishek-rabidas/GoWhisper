@@ -59,6 +59,23 @@ func main() {
 		return
 	}
 
-	fmt.Println("Response:", string(responseBody))
+	fmt.Println("Transcription completed :: Saving output")
 
+	writeOutput(string(responseBody))
+}
+
+func writeOutput(response string) {
+	file, err := os.Create("output.txt")
+	if err != nil {
+		return
+	}
+
+	defer file.Close()
+
+	_, err = file.WriteString(response)
+	if err != nil {
+		return
+	}
+
+	fmt.Println("Output saved")
 }

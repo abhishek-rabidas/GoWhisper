@@ -1,2 +1,5 @@
 key.secret
 .idea
+*.exe
+*.mp3
+*.m4a
